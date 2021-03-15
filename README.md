@@ -26,4 +26,5 @@ Thompson Simon; Haskell. ISBN: 978-0-201-40357-2 pbk
 Programa da Universidade do Porto
 
 ![alt text][logo]
+
 [logo]: https://sigarra.up.pt/reitoria/pt/imagens/M2020-Logo
