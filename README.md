@@ -27,4 +27,4 @@ Programa da Universidade do Porto
 
 ![alt text][logo]
 
-[logo]: https://pbs.twimg.com/profile_images/1323576133011603457/iVc5BHpa.jpg
+[logo]: https://www.up.pt/it/static/76781e2f.png
