@@ -27,4 +27,4 @@ Programa da Universidade do Porto
 
 ![alt text][logo]
 
-[logo]: https://sigarra.up.pt/reitoria/pt/imagens/M2020-Logo
+[logo]: https://pbs.twimg.com/profile_images/1323576133011603457/iVc5BHpa.jpg
