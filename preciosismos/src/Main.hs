@@ -23,7 +23,7 @@ calculaHoras h1 m1 h2 m2 = x
         b = h2*60 + m2
         x = (b - a) `div` 60
 
-
+--função principal
 dialogo :: Int -> Int -> Int -> Int -> (String, String)
 dialogo h1 m1 h2 m2
         | horasParaMinutos h1 m1 h2 m2 `mod` 60 == 0 && horasParaMinutos h1 m1 h2 m2 `div` 60 == 1 = ("Passaram apenas " ++ show a ++  " minutos!" , "Queres dizer, " ++ show d ++ " hora?!")
