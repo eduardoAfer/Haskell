@@ -15,6 +15,3 @@ Thompson Simon; Haskell. ISBN: 978-0-201-40357-2 pbk
 
 Programa da Universidade do Porto
 
-![alt text][logo]
-
-[logo]: https://www.up.pt/it/static/76781e2f.png
