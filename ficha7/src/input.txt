@@ -1,0 +1,9 @@
+O problema
+
+Quando andaste na escola primária, aprendeste que os diferentes operadores aritméticos têm diferentes precedências. Isso acontece em todos os países, e por exemplo os ingleses usam a mnemónica: "Please Excuse My Dear Aunt Sally", que indica a ordem dos operadores (Parenteses, Exponenciação, Multiplicação, Divisão, Adição, Subtração).
+
+Por exemplo, a expressão:
+
+1 + 2 x 3 = ?
+dá como resultado 7, pois o operador multiplicação tem precedência.
+Se quiseremos avaliar primeiro a soma a expressão tem de ser:

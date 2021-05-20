@@ -1,0 +1,7 @@
+descrevem os objetos e noções que usamos. Uma definição pode ser simples,
+ como na definição de conjunto dada neste capítulo, ou 
+omplexa como na definição 
+ de segurança em um sistema criptográfico. 
+Precisão é essencial para qualquer definição
+  matemática. Quando definindo algum objeto temos que deixar claro o que
+ constitui aquele objeto e o que não.
