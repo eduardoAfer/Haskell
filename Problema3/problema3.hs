@@ -1,4 +1,3 @@
-{-# LANGUAGE NamedFieldPuns #-}
 import Log
 
 parseMessage :: String -> LogEntry
@@ -17,16 +16,25 @@ parseLog txt = map parseMessage (lines txt)
 
 
 insert :: LogEntry -> MessageTree -> MessageTree
-insert log Empty = Node log Empty Empty  
+insert log Empty = Node log Empty Empty
 insert log (Node a esq dir)
   | Unknown  = Node a esq dir
-	| aux log  == a = Node a esq (insert log dir)
-	| aux log  < a = Node a (insert log esq) dir
-	| aux log  > a = Node a esq (insert log dir)
+        | aux log  == a = Node a esq (insert log dir)
+        | aux log  < a = Node a (insert log esq) dir
+        | aux log  > a = Node a esq (insert log dir)
 
 aux :: LogEntry -> Int
 aux log = TimeStamp
 
+
+build :: [LogEntry] -> MessageTree    -- construir uma árvore ordenada
+build = map insert
+
+
+
+inOrder :: MessageTree -> [LogEntry]  -- listar mensagens por ordem
+inOrder Empty = []
+inOrder Node LogEntry esq  dir  = inOrder esq ++ [LogEntry] ++ inOrder dir
 
 
 
