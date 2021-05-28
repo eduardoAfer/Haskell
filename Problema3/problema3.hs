@@ -16,29 +16,40 @@ parseLog txt = map parseMessage (lines txt)
 
 
 insert :: LogEntry -> MessageTree -> MessageTree
+insert (Unknown _ ) t = t
 insert log Empty = Node log Empty Empty
 insert log (Node a esq dir)
-  | Unknown  = Node a esq dir
-        | aux log  == a = Node a esq (insert log dir)
-        | aux log  < a = Node a (insert log esq) dir
-        | aux log  > a = Node a esq (insert log dir)
+        | aux log  < aux a = Node a (insert log esq) dir
+        | aux log  >= aux a = Node a esq (insert log dir)
 
 aux :: LogEntry -> Int
-aux log = TimeStamp
+aux (LogMessage  Info t _) = t
+aux (LogMessage Warning t _) = t
+aux (LogMessage (Error _ ) t _ ) = t
 
 
 build :: [LogEntry] -> MessageTree    -- construir uma árvore ordenada
-build = map insert
+build xs = foldr (\ x arv -> (insert x arv)) Empty xs
 
 
 
 inOrder :: MessageTree -> [LogEntry]  -- listar mensagens por ordem
 inOrder Empty = []
-inOrder Node LogEntry esq  dir  = inOrder esq ++ [LogEntry] ++ inOrder dir
+inOrder (Node a esq  dir)  = (inOrder esq) ++ [a] ++ (inOrder dir)
 
+
+sortMessages :: [LogEntry] -> [LogEntry]
+sortMessages msgs = inOrder (build msgs)
+
+maiorq50 :: LogEntry -> Bool
+maiorq50 l | auxMaior l >= 50 = True 
+           | otherwise = False 
+
+auxMaior :: LogEntry -> Int
+auxMaior (LogMessage (Error t ) _ _ ) = t
 
 
 main :: IO()
 main = do
   txt <- readFile "error.log"
-  putStrLn $ parseLog txt
+  putStrLn $ show $ filter maiorq50 (sortMessages (parseLog txt))
