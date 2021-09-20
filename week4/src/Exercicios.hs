@@ -10,10 +10,10 @@ module Exercicios where
                     
 
 data TipoTriangulo = Escaleno | Isosceles | Equilatero | Nenhum
-   deriving (Show)
+  deriving (Show)
 
- determinaTriangulo :: (Num a, Ord a) -> a -> a -> a -> TipoTriangulo 
- determinaTriangulo  a b c 
+determinaTriangulo :: (Num a, Ord a) -> a -> a -> a -> TipoTriangulo 
+determinaTriangulo  a b c 
                      | a == b && a == c = Equilátero
                      | a == b && a /= c ||
                        b == c && c /= a ||
@@ -33,14 +33,15 @@ somarHorario (HoraMinuto h m) (HoraMinuto h2 m2) | m + m2 >= 60  = HoraMinuto (h
 
 
 
- data Periodo = Madrugada | Manha | Tarde | Noite
-   deriving (Show)
+data Periodo = Madrugada | Manha | Tarde | Noite
+  deriving (Show)
 
- horarioToPeriodo :: Horario -> Periodo
- horarioToPeriodo h m | h >= 0 && h <= 5 && m >= 0 && m <= 59 = Madrugada
-                      | h >= 6 && h <= 11 && m >= 0 && m <= 59 = Manha
-                      | h >= 12 && h <= 17 && m >= 0 && m <= 59 = Tarde
-                      | otherwise = Noite
+horarioToPeriodo :: Horario -> Periodo
+horarioToPeriodo h m | h >= 0 && h <= 5 && m >= 0 && m <= 59 = Madrugada
+                     | h >= 6 && h <= 11 && m >= 0 && m <= 59 = Manha
+                     | h >= 12 && h <= 17 && m >= 0 && m <= 59 = Tarde
+                     | otherwise = Noite
+
 
 class Booleable a where
   toBool :: a -> Bool
@@ -76,8 +77,8 @@ fatorConversao Jarda    Polegada = 36
 fatorConversao Milha    Polegada = 63360
 
 
- converter ::Fractional a => Medida -> Medida -> a -> a
- converter de para x = x * fatorConversao de Polegada * fatorConversao Polegada para
+converter ::Fractional a => Medida -> Medida -> a -> a
+converter de para x = x * fatorConversao de Polegada * fatorConversao Polegada para
 
 data Nota = Do | Re | Mi | Fa | Sol | La | Si 
   deriving (Show, Enum)
